@@ -20,7 +20,7 @@ public class MailController {
     @PostMapping("send")
     public ResponseEntity<String> sendEmail(@RequestBody Users users) {
         try {
-            mail.sendEmail(users);
+            mail.sendEmail(users.getEmail(), MailService.TEST_SUBJECT, MailService.TEST_CONTENT);
             return ResponseEntity.ok("Email sent");
         } catch(Exception e) {
             return new ResponseEntity<>(HttpStatusCode.valueOf(500));
