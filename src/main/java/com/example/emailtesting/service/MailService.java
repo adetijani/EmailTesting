@@ -11,10 +11,11 @@ import org.springframework.stereotype.Service;
 
 public class MailService {
     private final JavaMailSender javaMailSender;
-    String subject = "Confirmation message";
-    String content = "welcome to Arsenal";
+
 
     public void sendEmail(Users users ) {
+        String subject = "Confirmation message";
+        String content = "welcome to Arsenal";
 
         SimpleMailMessage mailMessage = new SimpleMailMessage();
 
@@ -22,7 +23,7 @@ public class MailService {
 
         mailMessage.setSubject(subject);
 
-        mailMessage.setText(content );
+        mailMessage.setText(content);
 
         javaMailSender.send(mailMessage);
 
